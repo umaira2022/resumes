@@ -1,0 +1,43 @@
+---
+title: "Resume Experiment"
+format: html
+execute: 
+  echo: false
+---
+
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(tidymodels)
+library(broom)
+library(marginaleffects)
+library(easystats)
+
+x <- read_csv("https://raw.githubusercontent.com/PPBDS/bootcamp/refs/heads/master/_internal/data/resume.csv",
+        show_col_types = FALSE)
+```
+<!-- name indicates applicant's first name.
+
+gender indicates gender.
+
+ethnicity indicates ethnicity (i.e., Caucasian-sounding vs. African-American sounding first name).
+
+quality indicatesquality of resume.
+
+call indicates whether the applicant was called back?
+
+city indicates city: Boston or Chicago.
+
+jobs indicates number of jobs listed on resume.
+
+experience indicates number of years of work experience on the resume.
+
+honors: Did the resume mention some honors?
+
+holes: Does the resume have some employment holes?
+
+special: Does the resume mention some special skills? -->
+

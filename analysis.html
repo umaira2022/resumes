@@ -35,6 +35,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="analysis_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,6 +113,72 @@ honors: Did the resume mention some honors?
 holes: Does the resume have some employment holes?
 
 special: Does the resume mention some special skills? -->
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term        estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)   -2.23     0.0726    -30.7  2.22e-207   -2.38     -2.09 
+2 citychicago   -0.397    0.106      -3.76 1.70e-  4   -0.605    -0.190</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term          estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)     -2.67     0.0825    -32.4  1.59e-230   -2.84     -2.52 
+2 ethnicitycauc    0.438    0.107       4.08 4.45e-  5    0.229     0.650</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  term          estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)     -2.47     0.0964    -25.6  5.88e-145   -2.66     -2.29 
+2 citychicago     -0.399    0.106      -3.77 1.66e-  4   -0.607    -0.191
+3 ethnicitycauc    0.439    0.107       4.09 4.33e-  5    0.230     0.652</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 7
+  term          estimate std.error statistic  p.value conf.low conf.high
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    -2.34      0.247      -9.49 2.34e-21   -2.83    -1.86  
+2 gendermale     -0.139     0.133      -1.05 2.96e- 1   -0.405    0.117 
+3 citychicago    -0.536     0.117      -4.59 4.53e- 6   -0.766   -0.307 
+4 ethnicitycauc   0.449     0.108       4.14 3.45e- 5    0.237    0.662 
+5 qualitylow     -0.196     0.110      -1.78 7.52e- 2   -0.412    0.0195
+6 jobs           -0.0717    0.0467     -1.53 1.25e- 1   -0.163    0.0200
+7 specialyes      0.794     0.109       7.32 2.49e-13    0.582    1.01  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  term          estimate std.error statistic   p.value conf.low conf.high
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)     -2.75      0.118   -23.3   1.56e-120   -2.98     -2.52 
+2 gendermale      -0.126     0.133    -0.950 3.42e-  1   -0.392     0.130
+3 citychicago     -0.463     0.108    -4.28  1.85e-  5   -0.676    -0.252
+4 ethnicitycauc    0.447     0.108     4.13  3.64e-  5    0.236     0.660
+5 specialyes       0.817     0.108     7.57  3.72e- 14    0.606     1.03 </code></pre>
+</div>
+</div>
+<p>This is my data generating mechanism.</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\text{logit}(\Pr(\text{call} = 1)) =\; &amp; -2.75
+\; - \; 0.13 \cdot \text{male}
+\; - \; 0.46 \cdot \text{chicago} \\
+&amp; + \; 0.45 \cdot \text{caucasian}
+\; + \; 0.82 \cdot \text{special}
+\end{aligned}
+\end{equation}
+\]</span></p>
 
 </main>
 <!-- /main column -->
